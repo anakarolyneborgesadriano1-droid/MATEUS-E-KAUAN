@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Matheus & Kauan | A Dupla</title>
+
+    <style>
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d0618;
+            color: #fff;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================== */
+
+        header {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(13, 6, 24, 0.65),
+                    rgba(49, 13, 82, 0.85)
+                ),
+                url("https://www.fmodia.com.br/wp-content/uploads/2025/05/Matheus-Kauan-holofote-fmodia.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        header h1 {
+            font-size: clamp(45px, 8vw, 90px);
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #d6a4ff,
+                #ffffff
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: aparecer 1.5s ease;
+        }
+
+        header p {
+            font-size: 20px;
+            margin-top: 15px;
+            color: #e8d8f7;
+            animation: aparecer 2s ease;
+        }
+
+        /* =========================
+           MENU
+        ========================== */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            padding: 15px;
+
+            background: rgba(20, 8, 35, 0.92);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 30px;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #9b4dff;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           CONTEÚDO
+        ========================== */
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 70px 20px;
+        }
+
+        section {
+            margin-bottom: 90px;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .titulo h2 {
+            font-size: clamp(30px, 5vw, 50px);
+            margin-bottom: 10px;
+
+            background: linear-gradient(
+                90deg,
+                #b45cff,
+                #ffffff
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .titulo p {
+            color: #cbbbd8;
+        }
+
+        /* =========================
+           HISTÓRIA
+        ========================== */
+
+        .historia {
+            background: linear-gradient(
+                145deg,
+                #1a0c29,
+                #28113d
+            );
+
+            padding: 35px;
+            border-radius: 25px;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .historia p {
+            margin-bottom: 18px;
+            color: #e5dbea;
+            font-size: 17px;
+        }
+
+        .destaque {
+            color: #c27cff;
+            font-weight: bold;
+        }
+
+        /* =========================
+           FOTOS
+        ========================== */
+
+        .foto-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 45px 0;
+        }
+
+        .foto-container img {
+            display: block;
+
+            width: min(90%, 700px);
+            height: auto;
+
+            border-radius: 25px;
+
+            border: 3px solid #a94dff;
+
+            box-shadow:
+                0 0 30px rgba(169, 77, 255, 0.3),
+                0 20px 50px rgba(0,0,0,0.5);
+
+            transition: 0.5s;
+        }
+
+        .foto-container img:hover {
+            transform: scale(1.03);
+            box-shadow:
+                0 0 50px rgba(169, 77, 255, 0.6),
+                0 25px 60px rgba(0,0,0,0.6);
+        }
+
+        /* =========================
+           MÚSICAS
+        ========================== */
+
+        .musicas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .musica {
+            background: linear-gradient(
+                145deg,
+                #1c0d2b,
+                #32134a
+            );
+
+            padding: 25px 20px;
+            border-radius: 18px;
+
+            text-align: center;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            transition: 0.3s;
+        }
+
+        .musica:hover {
+            transform: translateY(-8px);
+            border-color: #a94dff;
+            box-shadow: 0 15px 30px rgba(169,77,255,0.2);
+        }
+
+        .musica span {
+            display: block;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .musica p {
+            color: #eee;
+            font-weight: bold;
+        }
+
+        /* =========================
+           PERGUNTAS E RESPOSTAS
+        ========================== */
+
+        .perguntas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .pergunta {
+            background: #180a27;
+            padding: 28px;
+
+            border-radius: 20px;
+
+            border-left: 5px solid #a94dff;
+
+            transition: 0.3s;
+        }
+
+        .pergunta:hover {
+            transform: translateY(-6px);
+            background: #211034;
+        }
+
+        .pergunta h3 {
+            color: #c77dff;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .pergunta p {
+            color: #d8cce0;
+        }
+
+        /* =========================
+           PRIMEIROS LANÇAMENTOS
+        ========================== */
+
+        .lancamentos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .lancamento {
+            padding: 25px;
+            background: linear-gradient(
+                135deg,
+                #261039,
+                #170820
+            );
+
+            border-radius: 20px;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            transition: 0.3s;
+        }
+
+        .lancamento:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .lancamento h3 {
+            color: #c77dff;
+            margin-bottom: 10px;
+        }
+
+        .lancamento p {
+            color: #d7c9df;
+        }
+
+        /* =========================
+           DESTAQUE
+        ========================== */
+
+        .banner {
+            text-align: center;
+
+            padding: 70px 30px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(117, 39, 173, 0.8),
+                    rgba(42, 12, 69, 0.95)
+                );
+
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .banner h2 {
+            font-size: clamp(35px, 6vw, 60px);
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            color: #eadcf4;
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================== */
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+
+            background: #08030d;
+
+            color: #9e8fa8;
+        }
+
+        footer strong {
+            color: #c77dff;
+        }
+
+        /* =========================
+           ANIMAÇÕES
+        ========================== */
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           CELULAR
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            nav {
+                gap: 5px;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            main {
+                padding: 50px 15px;
+            }
+
+            .historia {
+                padding: 25px 20px;
+            }
+
+            .historia p {
+                font-size: 16px;
+            }
+
+            .foto-container img {
+                width: 95%;
+            }
+
+            section {
+                margin-bottom: 65px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         CAPA
+    ========================== -->
+
+    <header id="inicio">
+
+        <h1>Matheus & Kauan</h1>
+
+        <p>
+            Uma história de música, família e grandes sucessos
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         MENU
+    ========================== -->
+
+    <nav>
+
+        <a href="#historia">História</a>
+
+        <a href="#musicas">Músicas</a>
+
+        <a href="#perguntas">Perguntas</a>
+
+        <a href="#lancamentos">Lançamentos</a>
+
+    </nav>
+
+
+    <main>
+
+        <!-- =========================
+             HISTÓRIA
+        ========================== -->
+
+        <section id="historia">
+
+            <div class="titulo">
+
+                <h2>A história da dupla</h2>
+
+                <p>
+                    Conheça a trajetória de Matheus & Kauan
+                </p>
+
+            </div>
+
+
+            <div class="historia">
+
+                <p>
+                    Os dois são irmãos, naturais de
+                    <span class="destaque">Itapuranga, Goiás</span>.
+                </p>
+
+                <p>
+                    O Kauan começou a se envolver com música ainda criança,
+                    enquanto Matheus também foi desenvolvendo o interesse
+                    por cantar e compor.
+                </p>
+
+                <p>
+                    Quando Kauan voltou dos Estados Unidos, os dois perceberam
+                    que poderiam formar uma dupla. A família teve papel
+                    importante nesse começo — inclusive, segundo relatos
+                    sobre a trajetória deles, a mãe vendeu o carro para
+                    ajudar a financiar o primeiro CD.
+                </p>
+
+                <p>
+                    A dupla começou oficialmente por volta de
+                    <span class="destaque">2010</span>, e uma apresentação
+                    no Caldas Country, em Caldas Novas, foi um dos momentos
+                    decisivos para eles começarem a ganhar atenção.
+                </p>
+
+                <p>
+                    Nos primeiros anos, eles também ficaram conhecidos como
+                    compositores, tendo músicas gravadas por artistas
+                    importantes do sertanejo.
+                </p>
+
+                <p>
+                    O grande estouro nacional veio em
+                    <span class="destaque">2015</span>, principalmente com
+                    <span class="destaque">“Que Sorte a Nossa”</span>,
+                    que colocou Matheus & Kauan definitivamente entre os
+                    grandes nomes do sertanejo.
+                </p>
+
+            </div>
+
+
+            <div class="foto-container">
+
+                <img
+                    src="https://s2-g1.glbimg.com/EvcRm51fTR18zrp2KDhYOc9-iu8=/0x0:2016x1664/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2021/C/G/mNWgXzSPAi8caY0DDwuQ/matheuskauan-cdc4826.jpg"
+                    alt="Matheus e Kauan"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MÚSICAS
+        ========================== -->
+
+        <section id="musicas">
+
+            <div class="titulo">
+
+                <h2>🎵 Grandes sucessos</h2>
+
+                <p>
+                    Algumas músicas conhecidas da dupla
+                </p>
+
+            </div>
+
+
+            <div class="musicas">
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=BkpqU3gdjlw&list=RDBkpqU3gdjlw&start_radio=1"><h4>que sorte a nossa</h4></a>
+                </div>
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=kbCtpDwVCLQ&list=RDkbCtpDwVCLQ&start_radio=1"><H4>o nosso santo bateu</H4></a>
+                </div>
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=IJmxyfbRg0A&list=RDIJmxyfbRg0A&start_radio=1"><H4> vou ter que superar</H4></a>
+                </div>
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=BEz8l69aI8Y&list=RDBEz8l69aI8Y&start_radio=1"><H4>quarta cadeira</H4></a>
+                </div>
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=OOHHoNTcGE4&list=RDOOHHoNTcGE4&start_radio=1"><H4>decide ai</H4></a>
+                </div>
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=YRb9y6jrmHc&list=RDYRb9y6jrmHc&start_radio=1"><h4>expectativa x realidade</h4></a>
+                </div>
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=qL9VDKaSO_s&list=RDqL9VDKaSO_s&start_radio=1"><h4>te assumi pra o brasil</h4></a>
+                </div>
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=8Hm3WkmS16M&list=RD8Hm3WkmS16M&start_radio=1"><h4>meu oxigenio</h4></a>
+                </div>
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=tmnHBWlOzjI&list=RDtmnHBWlOzjI&start_radio=1"><h4>incerteza</h4></a>
+                </div>
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=CQaNDD7MB0M&list=RDCQaNDD7MB0M&start_radio=1"><h4>a rosa eo beija flor</h4></a>
+                </div>
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=v35cCoYAHXs&list=RDv35cCoYAHXs&start_radio=1"><h4>to com moral no céu</h4></a>
+                </div>
+                  <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=xEBFajTpA2Q&list=RDxEBFajTpA2Q&start_radio=1"><h4>te amo a beça</h4></a>
+                </div>
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=qFFP5rBopr8&list=RDqFFP5rBopr8&start_radio=1"><h4>oitava dose</h4></a>
+                </div>
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=GoAefn-rAmc&list=RDGoAefn-rAmc&start_radio=1"><h4>mala</h4></a>
+                </div>
+
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=aHkIAM9Pjgs&list=RDaHkIAM9Pjgs&start_radio=1"><h4>amando sem parar</h4></a>
+                </div>
+
+                <div class="musica">
+                    <span>🎶</span>
+                    <a href="https://www.youtube.com/watch?v=_v0-5QY6y-M&list=RD_v0-5QY6y-M&start_radio=1"><h4>a nossa praia</h4></a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SEGUNDA FOTO
+        ========================== -->
+
+        <div class="foto-container">
+
+            <img
+                src="https://www.fmodia.com.br/wp-content/uploads/2025/05/Matheus-Kauan-holofote-fmodia.jpg"
+                alt="Matheus e Kauan no palco"
+            >
+
+        </div>
+
+
+        <!-- =========================
+             PERGUNTAS
+        ========================== -->
+
+        <section id="perguntas">
+
+            <div class="titulo">
+
+                <h2>❓ Perguntas e respostas</h2>
+
+                <p>
+                    Teste seus conhecimentos sobre a dupla
+                </p>
+
+            </div>
+
+
+            <div class="perguntas">
+
+                <div class="pergunta">
+                    <h3>Quem são Matheus & Kauan?</h3>
+                    <p>
+                        São uma dupla sertaneja brasileira formada pelos
+                        irmãos Matheus Aleixo e Kauan Mariz de Oliveira.
+                    </p>
+                </div>
+
+
+                <div class="pergunta">
+                    <h3>Qual é o estilo musical da dupla?</h3>
+                    <p>
+                        Sertanejo, especialmente o sertanejo universitário.
+                    </p>
+                </div>
+
+
+                <div class="pergunta">
+                    <h3>De onde são Matheus & Kauan?</h3>
+                    <p>
+                        Os irmãos são de Itapuranga, Goiás.
+                    </p>
+                </div>
+
+
+                <div class="pergunta">
+                    <h3>Qual música ajudou a dupla a ganhar destaque?</h3>
+                    <p>
+                        “Que Sorte a Nossa” foi um dos grandes sucessos
+                        que ajudaram a projetar a dupla nacionalmente.
+                    </p>
+                </div>
+
+
+                <div class="pergunta">
+                    <h3>Qual é outra música muito conhecida?</h3>
+                    <p>
+                        “O Nosso Santo Bateu”.
+                    </p>
+                </div>
+
+
+                <div class="pergunta">
+                    <h3>Os dois são irmãos?</h3>
+                    <p>
+                        Sim. Matheus e Kauan são irmãos.
+                    </p>
+                </div>
+
+
+                <div class="pergunta">
+                    <h3>Qual é o nome completo de Matheus?</h3>
+                    <p>
+                        Matheus Aleixo.
+                    </p>
+                </div>
+
+
+                <div class="pergunta">
+                    <h3>Qual é o nome completo de Kauan?</h3>
+                    <p>
+                        Kauan Mariz de Oliveira.
+                    </p>
+                </div>
+
+
+                <div class="pergunta">
+                    <h3>Quais temas aparecem nas músicas?</h3>
+                    <p>
+                        Amor, relacionamentos, saudade, encontros e términos.
+                    </p>
+                </div>
+                   <div class="pergunta">
+                    <h3>Quando a dupla começou?</h3>
+                    <p>
+                        A dupla começou sua trajetória por volta de 2010, ganhando destaque após sua apresentação no Caldas Country.
+                    </p>
+                </div>
+
+
+                <div class="pergunta">
+                    <h3>Matheus & Kauan também são compositores?</h3>
+                    <p>
+                        Sim. Além de cantarem, os irmãos também compõem músicas que foram gravadas por outros artistas.
+                    </p>
+                </div>
+
+
+                <div class="pergunta">
+                    <h3>Por que a dupla é conhecida no Brasil?</h3>
+                    <p>
+                        Pelos diversos sucessos no sertanejo e pelas
+                        parcerias com outros artistas brasileiros.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PRIMEIROS LANÇAMENTOS
+        ========================== -->
+
+        <section id="lancamentos">
+
+            <div class="titulo">
+
+                <h2>💿 Primeiros lançamentos</h2>
+
+                <p>
+                    Os primeiros passos da carreira
+                </p>
+
+            </div>
+
+
+            <div class="lancamentos">
+
+                <div class="lancamento">
+
+                    <h3>Paraquedas</h3>
+
+                    <p>
+                        Foi o primeiro projeto da dupla. O álbum é
+                        associado ao início da trajetória profissional
+                        de Matheus & Kauan.
+                    </p>
+
+                </div>
+
+
+                <div class="lancamento">
+
+                    <h3>Sete Mares</h3>
+
+                    <p>
+                        Uma das primeiras músicas de destaque da dupla,
+                        sendo também uma homenagem ao pai dos irmãos.
+                    </p>
+
+                </div>
+
+
+                <div class="lancamento">
+
+                    <h3>Esconderijo</h3>
+
+                    <p>
+                        Uma das músicas presentes nos primeiros trabalhos
+                        da carreira da dupla.
+                    </p>
+
+                </div>
+
+
+                <div class="lancamento">
+
+                    <h3>Mundo Paralelo</h3>
+
+                    <p>
+                        A música ganhou uma versão ao vivo posteriormente,
+                        com participação de Jorge & Mateus.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DESTAQUE
+        ========================== -->
+
+        <section>
+
+            <div class="banner">
+
+                <h2>⭐ Que Sorte a Nossa</h2>
+
+                <p>
+                    Um dos maiores sucessos da carreira de
+                    Matheus & Kauan e uma música que ajudou a
+                    consolidar a dupla nacionalmente.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+
+    <footer>
+
+        <p>
+            Site sobre <strong>Matheus & Kauan</strong>
+        </p>
+
+        <p>
+            Música • História • Sucessos
+        </p>
+
+    </footer>
+
+</body>
+</html>
